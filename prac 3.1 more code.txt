@@ -1,0 +1,23 @@
+import pandas as pd
+
+# Sample dataset creation
+data = {
+    'Age_Group': ['18-25', '18-25', '26-35', '26-35', '36-45', '36-45', '36-45'],
+    'Income': [25000, 27000, 32000, 34000, 41000, 42000, 40000]
+}
+
+df = pd.DataFrame(data)
+
+# Group by Age_Group and calculate summary statistics
+grouped_stats = df.groupby('Age_Group')['Income'].agg(['mean', 'median', 'min', 'max', 'std'])
+print("Summary Statistics Grouped by Age_Group:")
+print(grouped_stats)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# Create a list of income values for each age group
+income_lists = df.groupby('Age_Group')['Income'].apply(list)
+print("Income Values Grouped by Age_Group:")
+print(income_lists)
